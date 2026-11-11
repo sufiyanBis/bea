@@ -9,6 +9,11 @@ export default defineConfig(({ mode }) => {
   const base = (env.VITE_BASE_PATH || '/').replace(/\/?$/, '/');
   return {
     base,
+    build: {
+      rollupOptions: {
+        maxParallelFileOps: 32,
+      },
+    },
     plugins: [
       react(),
       {
